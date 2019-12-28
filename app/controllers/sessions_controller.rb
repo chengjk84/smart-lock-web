@@ -34,7 +34,7 @@ class SessionsController < ApplicationController
             session[:token_type] = @user["token_type"]
             session[:expires_at] = DateTime.now + 2.hours
 
-            redirect_to users_path, notice: "success!!!"
+            redirect_to root_path, notice: "success!!!"
         end
     else
         flash.now.alert = "Email or password is invalid"

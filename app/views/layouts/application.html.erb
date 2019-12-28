@@ -24,7 +24,7 @@
     </nav>
     <nav class="my-2 my-md-0 mr-md-3">
       <% if current_user %>
-        Logged in as session[:username] %>.
+        Logged in as <%= session[:username] %>.
         <%= link_to "Log Out", session_path("current"), method: "delete", class: "p-2 text-dark" %>
       <% else %>
         <%= link_to "Sign Up", new_user_path, class: "p-2 text-dark"  %> or
