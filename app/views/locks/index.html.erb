@@ -1,0 +1,32 @@
+<div class='container'>
+  <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">Locks#index</h1>
+    <p class="lead">Find me in app/views/locks/index.html.erb.</p>
+  </div>
+  
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">lockId</th>
+        <th scope="col">date</th>
+        <th scope="col">lockMac</th>
+        <th scope="col">electricQuantity</th>
+        <th scope="col">keyboardPwdVersion</th>
+        <th scope="col">specialValue</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @locks["list"].each do |lock| %>
+      <tr>
+        <td scope="row"><%= link_to lock["lockName"], lock_path(lock["lockId"]) %></td>
+        <td><%= Time.at(lock["date"]/1000) %></td>
+        <td><%= lock["lockMac"]%></td>
+        <td><%= lock["electricQuantity"]%>%</td>
+        <td><%= lock["keyboardPwdVersion"]%></td>
+        <td><%= lock["specialValue"]%></td>
+      </tr>
+    <% end %>
+    </tbody>
+
+  </table>
+</div>

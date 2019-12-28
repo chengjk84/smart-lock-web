@@ -1,0 +1,38 @@
+<div class='container'>
+  <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">List of Passcodes</h1>
+    <p class="lead">Get all created passcodes of a lock #<%= params[:lock_id] %>.</p>
+  </div>
+  
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">keyboardPwdId</th>
+        <th scope="col">keyboardPwdName</th>
+        <th scope="col">keyboardPwd</th>
+        <th scope="col">startDate</th>
+        <th scope="col">endDate</th>
+        <th scope="col">sendDate</th>
+        <th scope="col">keyboardPwdType</th>
+        <th scope="col">status</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @passcodes["list"].each do |passcode| %>
+      <tr>
+        <td scope="row"><%= passcode["keyboardPwdId"]%></td>
+        <td><%= passcode["keyboardPwdName"]%></td>
+        <td><%= passcode["keyboardPwd"]%></td>
+        <td><%= Time.at(passcode["startDate"]/1000) %></td>
+        <td><%= Time.at(passcode["endDate"]/1000) %></td>
+        <td><%= Time.at(passcode["sendDate"]/1000) %></td>
+        <td><%= passcode["keyboardPwdType"]%></td>
+        <td><%= passcode["status"]%></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <%= link_to "Get a passcode", new_lock_key_path, class: "btn btn-secondary" %>
+  
+</div>

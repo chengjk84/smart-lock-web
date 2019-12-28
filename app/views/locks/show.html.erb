@@ -1,0 +1,18 @@
+<div class='container'>
+  <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4"><%= @lock["lockName"] %> : #<%= @lock["lockId"] %> (<%= @lock["lockAlias"] %>)</h1>
+    <p class="lead">Model No.: <%= @lock["modelNum"] %></p>
+    <p class="lead">MAC Address: <%= @lock["lockMac"] %></p>
+    <p class="lead">Master Passcode: <%= @lock["noKeyPwd"] %></p>
+    <p class="lead">Power Status: <%= @lock["electricQuantity"] %>%</p>
+    <p class="lead">Hardware Ver.: <%= @lock["hardwareRevision"] %></p>
+    <p class="lead">Firmware Ver.: <%= @lock["firmwareRevision"] %></p>
+    <p class="lead">Created on: <%= Time.at(@lock["date"]/1000) %></p>
+
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <%= link_to "View eKeys", lock_keys_path(@lock["lockId"]), class: "btn btn-secondary" %>
+      <%= link_to "View Passcodes", '#', class: "btn btn-secondary" %>
+      <%= link_to "View RFIDs", '#', class: "btn btn-secondary" %>
+    </div>
+  </div>
+</div>
