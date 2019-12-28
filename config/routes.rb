@@ -5,10 +5,10 @@ Rails.application.routes.draw do
     resources :passcodes
     resources :keys
   end
-  
+
   resources :sessions
   resources :users
 
-  root 'locks#index'
+  root to: 'locks#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

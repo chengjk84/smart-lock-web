@@ -1,4 +1,6 @@
 class LocksController < ApplicationController
+  before_filter :authorize, only: [:index, :show]
+
   def index
     options = {
       query: {
